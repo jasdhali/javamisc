@@ -2,18 +2,18 @@ package com.examples.powermock;
 
 import static org.junit.Assert.assertEquals;
 
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
-import org.testng.annotations.Test;
 
 @RunWith(PowerMockRunner.class)
 @PrepareForTest(TerminatedEmployee.class)
 public class EmployeeControllerTest {
 	
-	@Test(expectedExceptions = { UnsupportedOperationException.class })
+	@Test(expected =  UnsupportedOperationException.class )
 	public void shouldGetCountOfEmployees() {
 		EmployeeController employeeController = new EmployeeController(new EmployeeService());
 		assertEquals(10, employeeController.getProjectedEmployeeCount());
